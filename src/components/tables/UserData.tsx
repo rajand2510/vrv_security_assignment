@@ -104,7 +104,7 @@ export function UserData() {
         <div className="flex items-center space-x-4">
           <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
             <DialogTrigger asChild>
-              <Button className="bg-blue-500 text-white hover:bg-blue-600">Add User</Button>
+              <Button className="bg-black text-white ">Add User</Button>
             </DialogTrigger>
           </Dialog>
 
@@ -169,7 +169,7 @@ export function UserData() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="text-blue-600"
+                        className="text-slate-950"
                         onClick={() => setEditingUser(user)}
                       >
                         Edit

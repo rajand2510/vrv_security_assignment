@@ -6,6 +6,6 @@ type NavigationState = {
 };
 
 export const useNavigationState = create<NavigationState>((set) => ({
-  activeTab: 'users',
+  activeTab: 'dashboard',
   setActiveTab: (tab) => set({ activeTab: tab }),
 }));

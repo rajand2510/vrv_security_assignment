@@ -21,28 +21,28 @@ export const users: User[] = [
     "name": "Rebecca Dodson PhD",
     "email": "chelsea63@gmail.com",
     "role": "HR",
-    "status": "inactive"
+    "status": "active"
   },
   {
     "id": "4",
     "name": "Matthew Burns",
     "email": "fmurphy@sanchez.com",
     "role": "Intern",
-    "status": "inactive"
+    "status": "active"
   },
   {
     "id": "5",
     "name": "Lisa Browning",
     "email": "gayamber@ellison.org",
     "role": "Intern",
-    "status": "inactive"
+    "status": "active"
   },
   {
     "id": "6",
     "name": "Jamie Moore",
     "email": "sarahmiller@henderson.com",
     "role": "Intern",
-    "status": "inactive"
+    "status": "active"
   },
   {
     "id": "7",
@@ -77,7 +77,7 @@ export const users: User[] = [
     "name": "Andrew Stanley",
     "email": "brittanygomez@hotmail.com",
     "role": "SDE",
-    "status": "inactive"
+    "status": "active"
   },
   {
     "id": "12",
@@ -91,28 +91,28 @@ export const users: User[] = [
     "name": "Kimberly Carney",
     "email": "anthony00@yahoo.com",
     "role": "SDE",
-    "status": "inactive"
+    "status": "active"
   },
   {
     "id": "14",
     "name": "Jared Buckley",
     "email": "phillipgoodwin@hotmail.com",
     "role": "SDE",
-    "status": "inactive"
+    "status": "active"
   },
   {
     "id": "15",
     "name": "Victor Jones",
     "email": "kyleschultz@barker.com",
     "role": "SDE",
-    "status": "inactive"
+    "status": "active"
   },
   {
     "id": "16",
     "name": "Robert Harrison",
     "email": "odavis@gmail.com",
     "role": "SDE",
-    "status": "inactive"
+    "status": "active"
   },
   {
     "id": "17",

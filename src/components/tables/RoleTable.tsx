@@ -100,94 +100,80 @@ export function RoleTable() {
         </Dialog>
       </div>
 
-      <div className="rounded-md border">
-        <table className="w-full">
-          <thead>
-            <tr className="border-b bg-muted/50">
-              <th className="p-2 text-left">Role</th>
-              <th className="p-2 text-left">Permissions</th>
-              <th className="p-2 text-left">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {roles.map((role) => (
-              <tr key={role.id} className="border-b">
-                <td className="p-2">{role.name}</td>
-                <td className="p-2">
-                  <div className="flex flex-wrap gap-2">
-                    {role.permissions.map((permission) => (
-                      <Badge key={permission}>{permission}</Badge>
-                    ))}
-                  </div>
-                </td>
-                <td className="p-2">
-                  <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-                    <DialogTrigger asChild>
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="mr-2"
-                        onClick={() => setEditingRole(role)}
-                      >
-                        Edit
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent>
-                      <DialogHeader>
-                        <DialogTitle>Edit Role</DialogTitle>
-                      </DialogHeader>
-                      <div className="space-y-4">
-                        <Input
-                          placeholder="Role Name"
-                          value={editingRole?.name || role.name}
-                          onChange={(e) =>
-                            setEditingRole({ ...role, name: e.target.value })
-                          }
-                        />
-                        <div className="space-y-2">
-                          <h4 className="font-medium">Permissions</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {permissions.map((permission) => (
-                              <Badge
-                                key={permission.id}
-                                variant={
-                                  (editingRole || role).permissions.includes(
-                                    permission.name
-                                  )
-                                    ? 'default'
-                                    : 'outline'
-                                }
-                                className="cursor-pointer"
-                                onClick={() =>
-                                  setEditingRole(
-                                    togglePermission(
-                                      editingRole || role,
-                                      permission.name
-                                    )
-                                  )
-                                }
-                              >
-                                {permission.name}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-                        <Button onClick={handleEditSubmit}>Save Changes</Button>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {roles.map((role) => (
+          <div key={role.id} className="border rounded-lg p-4 shadow-md">
+            <h3 className="text-lg font-semibold">{role.name}</h3>
+            <div className="flex flex-wrap gap-2 my-2">
+              {role.permissions.map((permission) => (
+                <Badge key={permission}>{permission}</Badge>
+              ))}
+            </div>
+            <div className="mt-4 flex justify-between">
+              <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
+                <DialogTrigger asChild>
                   <Button
-                    variant="destructive"
+                    variant="outline"
                     size="sm"
-                    onClick={() => deleteRole(role.id)}
+                    onClick={() => setEditingRole(role)}
                   >
-                    Delete
+                    Edit
                   </Button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Edit Role</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <Input
+                      placeholder="Role Name"
+                      value={editingRole?.name || role.name}
+                      onChange={(e) =>
+                        setEditingRole({ ...role, name: e.target.value })
+                      }
+                    />
+                    <div className="space-y-2">
+                      <h4 className="font-medium">Permissions</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {permissions.map((permission) => (
+                          <Badge
+                            key={permission.id}
+                            variant={
+                              (editingRole || role).permissions.includes(
+                                permission.name
+                              )
+                                ? 'default'
+                                : 'outline'
+                            }
+                            className="cursor-pointer"
+                            onClick={() =>
+                              setEditingRole(
+                                togglePermission(
+                                  editingRole || role,
+                                  permission.name
+                                )
+                              )
+                            }
+                          >
+                            {permission.name}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <Button onClick={handleEditSubmit}>Save Changes</Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
+              <Button
+                variant="destructive"
+                size="sm"
+                onClick={() => deleteRole(role.id)}
+              >
+                Delete
+              </Button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

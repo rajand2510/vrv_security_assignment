@@ -1,9 +1,10 @@
-import { Users, Shield, Key } from 'lucide-react';
+import { Users, Shield, Key ,LayoutDashboard} from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { useNavigationState } from '@/hooks/useNavigationState';
 
 const navigationItems = [
+  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { id: 'users', label: 'Users', icon: Users },
   { id: 'roles', label: 'Roles', icon: Shield },
   { id: 'permissions', label: 'Permissions', icon: Key },

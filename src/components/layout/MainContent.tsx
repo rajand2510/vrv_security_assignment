@@ -1,18 +1,19 @@
-import { UserTable } from '@/components/tables/UserTable';
+import { UserData } from '@/components/tables/UserData';
 import { RoleTable } from '@/components/tables/RoleTable';
-import { PermissionTable } from '@/components/tables/PermissionTable';
+import { PermissionData} from '@/components/tables/PermissionData';
 import { useNavigationState } from '@/hooks/useNavigationState';
+import { Dashboard } from '../tables/Dashboard';
 
 export function MainContent() {
   const { activeTab } = useNavigationState();
 
   return (
     <div className="flex-1 p-8">
-      <h1 className="text-3xl font-bold mb-8">User Management Dashboard</h1>
-      
-      {activeTab === 'users' && <UserTable />}
+      <h1 className="text-3xl font-bold mb-5">VRV User Dashboard</h1>
+      {activeTab === 'dashboard' && <Dashboard />}
+      {activeTab === 'users' && <UserData />}
       {activeTab === 'roles' && <RoleTable />}
-      {activeTab === 'permissions' && <PermissionTable />}
+      {activeTab === 'permissions' && <PermissionData />}
     </div>
   );
 }

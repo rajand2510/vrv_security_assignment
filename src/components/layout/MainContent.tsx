@@ -3,7 +3,7 @@ import { RoleTable } from '@/components/tables/RoleTable';
 import { PermissionData} from '@/components/tables/PermissionData';
 import { useNavigationState } from '@/hooks/useNavigationState';
 import { Dashboard } from '../tables/Dashboard';
-import UserTable from '../tables/UserTable';
+import { UserTable }from '../tables/UserTable';
 
 export function MainContent() {
   const { activeTab } = useNavigationState();

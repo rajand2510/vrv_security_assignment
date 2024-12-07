@@ -33,17 +33,17 @@ export function UserTable() {
       setEditingUser(null);
     }
   };
-
   const handleAddSubmit = () => {
     if (newUser.name && newUser.email && newUser.role) {
       addUser({
-        id: Date.now().toString(),
         ...newUser as User,
+        id: Date.now().toString(),
       });
       setIsAddDialogOpen(false);
       setNewUser({ name: '', email: '', role: '', status: 'active' });
     }
   };
+  
 
   return (
     <div className="space-y-4">
@@ -107,12 +107,12 @@ export function UserTable() {
                 <td className="p-2">{user.email}</td>
                 <td className="p-2">{user.role}</td>
                 <td className="p-2">
-                  <Switch
-                    checked={user.status === 'active'}
-                    onCheckedChange={(checked) =>
-                      updateUser({ ...user, status: checked ? 'active' : 'inactive' })
-                    }
-                  />
+                <Switch
+  checked={user.status === 'active'}
+  onCheckedChange={(checked: boolean) =>
+    updateUser({ ...user, status: checked ? 'active' : 'inactive' })
+  }
+/>
                 </td>
                 <td className="p-2">
                   <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>

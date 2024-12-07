@@ -46,7 +46,8 @@ export function PermissionData() {
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-semibold text-gray-700">Permissions</h2>
-        <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen} className="backdrop-opacity-50 backdrop:bg-black">
+        <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
+        <div>
           <DialogTrigger asChild>
             <Button>Add Permission</Button>
           </DialogTrigger>
@@ -61,6 +62,7 @@ export function PermissionData() {
                 onChange={(e) =>
                   setNewPermission({ ...newPermission, name: e.target.value })
                 }
+              
               />
               <Textarea
                 placeholder="Description"
@@ -72,6 +74,7 @@ export function PermissionData() {
               <Button onClick={handleAddSubmit}>Add Permission</Button>
             </div>
           </DialogContent>
+          </div>
         </Dialog>
       </div>
 
